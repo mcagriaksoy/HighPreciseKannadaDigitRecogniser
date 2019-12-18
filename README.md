@@ -24,9 +24,12 @@ Acknowledgments
 Kaggle thanks Vinay Prabhu for providing this interesting dataset for a Playground competition.
 
 Image reference: https://www.researchgate.net/figure/speech-for-Kannada-numbers_fig2_313113588
+# Environment
 
+Kaggle Cloud Computing, GPU Based
+Tens
 # My Architecture
-
+I have used CNN architecture to build a model.
 
 # Accuracy improvements
 
