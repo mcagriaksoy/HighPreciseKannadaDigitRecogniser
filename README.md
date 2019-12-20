@@ -78,7 +78,14 @@ model.add(Dense(10, activation='softmax'))
 
 model.summary()
 ```
+# Swish Activation Function
+![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/swish.png)
+# Optimizer that I used
+
+![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/gif.gif)
 # Accuracy improvements
+
+
 One-hot encode
 ```
 # one-hot coding
