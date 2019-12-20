@@ -34,7 +34,42 @@ Tens
 I have used CNN architecture to build a model.
 
 # Accuracy improvements
+One-hot encode
+```
+# one-hot coding
+from sklearn.preprocessing import OneHotEncoder
 
+encoder = OneHotEncoder(sparse=False,categories='auto')
+yy = [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]]
+encoder.fit(yy)
+# transform
+train_label = train_label.reshape(-1,1)
+val_label = val_label.reshape(-1,1)
+
+train_label = encoder.transform(train_label)
+val_label = encoder.transform(val_label)
+
+print('train_label shape: %s'%str(train_label.shape))
+print('val_label shape: %s'%str(val_label.shape))
+```
+Image transform
+```
+plt.imshow(train_image[13].reshape(28,28))
+plt.show()
+print(train_image[13].shape)
+
+train_image = train_image/255.0
+val_image = val_image/255.0
+test_image = test_image/255.0
+
+train_image = train_image.reshape(train_image.shape[0],28,28,1)
+val_image = val_image.reshape(val_image.shape[0],28,28,1)
+test_image = test_image.reshape(test_image.shape[0],28,28,1)
+print('train_image shape: %s'%str(train_image.shape))
+
+print('train_image shape: %s'%str(train_image.shape))
+print('val_image shape: %s'%str(val_image.shape))
+```
 # Results 
 My results are: 0.99200 accuracy (due to kaggle competition result)
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/accuracy.PNG)
