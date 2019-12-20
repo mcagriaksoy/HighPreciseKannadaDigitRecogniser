@@ -1,7 +1,9 @@
 # HighPreciseKannadaDigitRecogniser
 CNN Based high precise MNIST like Kannada digit recognizer is created for a competition is organized by kaggle.
-With this solution, I have completed this competition in top 7%
+With this solution, I have completed this competition in top 4%
 
+
+![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/kannada.png)
 
 # About this dataset
 
@@ -34,6 +36,8 @@ I have used CNN architecture to build a model.
 # Accuracy improvements
 
 # Results 
+My results are: 0.99200 accuracy (due to kaggle competition result)
+![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/accuracy.PNG)
 
 # Conclusion
 
