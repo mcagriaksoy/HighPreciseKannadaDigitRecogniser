@@ -31,8 +31,53 @@ Image reference: https://www.researchgate.net/figure/speech-for-Kannada-numbers_
 Kaggle Cloud Computing, GPU Based
 Tens
 # My Architecture
-I have used CNN architecture to build a model.
+I have used CNN architecture to build a model. To increase accuracy, I have used different activation function that generally used with CNNs like ReLu, Sigmoid etc. The function is named swish is not generally described on Keras.
 
+Model Summary:
+```
+model = Sequential()
+get_custom_objects().update({'swish': Activation(swish )})
+model.add(Conv2D(64, kernel_size= (3,3), input_shape=(28, 28, 1),padding='same'))
+
+model.add(BatchNormalization(momentum=0.5, epsilon=1e-5, gamma_initializer="uniform"))
+model.add(LeakyReLU(alpha=0.1))
+model.add(Conv2D(64, kernel_size=(3,3), padding='same', activation='swish'))
+model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
+model.add(LeakyReLU(alpha=0.1))
+
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35))
+
+model.add(Conv2D(128, kernel_size =(3,3),padding='same', activation='swish'))
+model.add(BatchNormalization(momentum=0.2, epsilon=1e-5, gamma_initializer="uniform"))
+model.add(LeakyReLU(alpha=0.1))
+model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
+model.add(LeakyReLU(alpha=0.1))
+model.add(Conv2D(128,(3,3), padding='same', activation='swish' ))
+model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
+model.add(LeakyReLU(alpha=0.1))
+
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35))
+
+model.add(Conv2D(256, kernel_size = (3,3), padding='same', activation='swish'))
+model.add(BatchNormalization(momentum=0.2, epsilon=1e-5, gamma_initializer="uniform"))
+model.add(LeakyReLU(alpha=0.1))
+model.add(Conv2D(256, kernel_size= (3,3) ,padding='same', activation='swish'))
+model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
+model.add(LeakyReLU(alpha=0.1))
+
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35))
+
+model.add(Flatten())
+model.add(Dense(256))
+model.add(LeakyReLU(alpha=0.1))
+model.add(BatchNormalization())
+model.add(Dense(10, activation='softmax'))
+
+model.summary()
+```
 # Accuracy improvements
 One-hot encode
 ```
