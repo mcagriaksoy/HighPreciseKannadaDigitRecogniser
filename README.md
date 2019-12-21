@@ -25,7 +25,6 @@ Acknowledgments
 
 Kaggle thanks Vinay Prabhu for providing this interesting dataset for a Playground competition.
 
-Image reference: https://www.researchgate.net/figure/speech-for-Kannada-numbers_fig2_313113588
 # Environment
 
 Kaggle Cloud Computing, GPU Based
@@ -34,6 +33,8 @@ Tens
 I have used CNN architecture to build a model. To increase accuracy, I have used different activation function that generally used with CNNs like ReLu, Sigmoid etc. The function is named swish is not generally described on Keras.
 
 Model Summary:
+
+I have used quite complex solution and architecture for digit recognizer. Layers can be seen on below:
 ```
 model = Sequential()
 get_custom_objects().update({'swish': Activation(swish )})
@@ -75,63 +76,38 @@ model.add(Dense(256))
 model.add(LeakyReLU(alpha=0.1))
 model.add(BatchNormalization())
 model.add(Dense(10, activation='softmax'))
-
 model.summary()
 ```
+
 # Swish Activation Function
+
+The unique part of model is activation function. swish activation function is used in layers.
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/swish.png)
 # Optimizer that I used
+We have many optimizer algorithms and methods in deep learning. In this project RMSProp is used.
 
+Comparison between optimizers:
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/gif.gif)
+
 # Accuracy improvements
 
+To increase dataset and obtain overfitting, I have manupilate th images and create new ones to train model.
 
-One-hot encode
-```
-# one-hot coding
-from sklearn.preprocessing import OneHotEncoder
-
-encoder = OneHotEncoder(sparse=False,categories='auto')
-yy = [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]]
-encoder.fit(yy)
-# transform
-train_label = train_label.reshape(-1,1)
-val_label = val_label.reshape(-1,1)
-
-train_label = encoder.transform(train_label)
-val_label = encoder.transform(val_label)
-
-print('train_label shape: %s'%str(train_label.shape))
-print('val_label shape: %s'%str(val_label.shape))
-```
-Image transform
-```
-plt.imshow(train_image[13].reshape(28,28))
-plt.show()
-print(train_image[13].shape)
-
-train_image = train_image/255.0
-val_image = val_image/255.0
-test_image = test_image/255.0
-
-train_image = train_image.reshape(train_image.shape[0],28,28,1)
-val_image = val_image.reshape(val_image.shape[0],28,28,1)
-test_image = test_image.reshape(test_image.shape[0],28,28,1)
-print('train_image shape: %s'%str(train_image.shape))
-
-print('train_image shape: %s'%str(train_image.shape))
-print('val_image shape: %s'%str(val_image.shape))
-```
 # Results 
 My results are: 0.99200 accuracy (due to kaggle competition result)
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/accuracy.PNG)
 
 # Conclusion
 
+In conclusion, a CNN model is created for Kannada digit recognizer. The results are brilliant for me. The unique part of project is activation function part. (Swish is used) 
+In the future, I would like to adapt GNN in this solution.
+
+
 # References
 https://www.kaggle.com/c/Kannada-MNIST
 https://www.kaggle.com/c/digit-recognizer/
 https://en.wikipedia.org/wiki/Kannada
 https://arxiv.org/abs/1908.01242
+https://www.researchgate.net/figure/speech-for-Kannada-numbers_fig2_313113588
 https://github.com/vinayprabhu/Kannada_MNIST
 
