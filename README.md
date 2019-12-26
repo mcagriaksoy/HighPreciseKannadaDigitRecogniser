@@ -96,6 +96,8 @@ To increase dataset and obtain overfitting, I have manupilate the images and cre
 # Results 
 My results are: 0.99200 accuracy (due to kaggle competition result)
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/accuracy.PNG)
+![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/confusion%20matrix.PNG)
+![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/tps.PNG)
 
 # Conclusion
 
