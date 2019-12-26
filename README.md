@@ -85,8 +85,8 @@ The unique part of model is activation function. swish activation function is us
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/swish.png)
 # Optimizer that I used
 We have many optimizer algorithms and methods in deep learning. In this project RMSProp is used. Due to research Adam behves slightly better than RMSProp but, In my solution RMSProp behaves better. On the other hand, earlystopping and ReduceLROnPlateau features of keras are used. They decrease training time and prevent overfitting.
-
 Comparison between optimizers:
+
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/gif.gif)
 
 # Accuracy improvements
