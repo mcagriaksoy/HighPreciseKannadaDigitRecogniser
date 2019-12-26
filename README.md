@@ -1,14 +1,12 @@
-# HighPreciseKannadaDigitRecogniser
-CNN Based high precise MNIST like Kannada digit recognizer is created for a competition is organized by kaggle.
-With this solution, I have completed this competition in top 4%
+# High Accuracy Kannada Digits Recogniser
 
+Kannada digits are diﬀerent than standard arabic digits. Over 50 million people that liver India uses those digits in their daily life. Kannada MNIST dataset is prepared like MINIST but the detection of numbers are harder than standard arabic digits. CNN Based high precise MNIST like Kannada digit recognizer is created for a competition is organized by kaggle. With this solution, The competition is completed in top 4 percentage.
 
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/kannada.png)
 
 # About this dataset
 
-Bored of MNIST?
-
+Competition Info:
 The goal of this competition is to provide a simple extension to the classic MNIST competition we're all familiar with. Instead of using Arabic numerals, it uses a recently-released dataset of Kannada digits.
 
 Kannada is a language spoken predominantly by people of Karnataka in southwestern India. The language has roughly 45 million native speakers and is written using the Kannada script.
@@ -28,9 +26,11 @@ Kaggle thanks Vinay Prabhu for providing this interesting dataset for a Playgrou
 # Environment
 
 Kaggle Cloud Computing, GPU Based
-Tens
+Tensorflow 2.0, Keras
+
 # My Architecture
-I have used CNN architecture to build a model. To increase accuracy, I have used different activation function that generally used with CNNs like ReLu, Sigmoid etc. The function is named swish is not generally described on Keras.
+I have used CNN architecture to build a model. To increase accuracy, A different activation function is used. The function is named swish is not generally described on Keras. So, I need to define as custom activation function which simply Sigmoid*X .
+It increases the time complexity but also increases the accuracy.
 
 Model Summary:
 
@@ -84,14 +84,14 @@ model.summary()
 The unique part of model is activation function. swish activation function is used in layers.
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/swish.png)
 # Optimizer that I used
-We have many optimizer algorithms and methods in deep learning. In this project RMSProp is used.
+We have many optimizer algorithms and methods in deep learning. In this project RMSProp is used. Due to research Adam behves slightly better than RMSProp but, In my solution RMSProp behaves better. On the other hand, earlystopping and ReduceLROnPlateau features of keras are used. They decrease training time and prevent overfitting.
 
 Comparison between optimizers:
 ![Project](https://github.com/mcagriaksoy/HighPreciseKannadaDigitRecogniser/blob/master/gif.gif)
 
 # Accuracy improvements
 
-To increase dataset and obtain overfitting, I have manupilate th images and create new ones to train model.
+To increase dataset and obtain overfitting, I have manupilate the images and create new ones to train model. They are shifted, rotated a bit and some minor noise cancellition process happened.
 
 # Results 
 My results are: 0.99200 accuracy (due to kaggle competition result)
@@ -99,8 +99,9 @@ My results are: 0.99200 accuracy (due to kaggle competition result)
 
 # Conclusion
 
-In conclusion, a CNN model is created for Kannada digit recognizer. The results are brilliant for me. The unique part of project is activation function part. (Swish is used) 
-In the future, I would like to adapt GNN in this solution.
+In conclusion, a CNN model is created for Kannada digit recognizer. The results are brilliant for me. 
+The unique part of project is activation function part. (Swish is used) 
+In the future, I would like to adapt GNN in this solution. Because in this kannada digits they have more feature than standart arabic numbers. So, I can use some graph networks to detect cross lines on the image.
 
 
 # References
