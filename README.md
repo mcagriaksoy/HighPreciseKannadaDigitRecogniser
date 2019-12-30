@@ -32,52 +32,7 @@ Tensorflow 2.0, Keras
 I have used CNN architecture to build a model. To increase accuracy, A different activation function is used. The function is named swish is not generally described on Keras. So, I need to define as custom activation function which simply Sigmoid*X .
 It increases the time complexity but also increases the accuracy.
 
-Model Summary:
 
-I have used quite complex solution and architecture for digit recognizer. Layers can be seen on below:
-```
-model = Sequential()
-get_custom_objects().update({'swish': Activation(swish )})
-model.add(Conv2D(64, kernel_size= (3,3), input_shape=(28, 28, 1),padding='same'))
-
-model.add(BatchNormalization(momentum=0.5, epsilon=1e-5, gamma_initializer="uniform"))
-model.add(LeakyReLU(alpha=0.1))
-model.add(Conv2D(64, kernel_size=(3,3), padding='same', activation='swish'))
-model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
-model.add(LeakyReLU(alpha=0.1))
-
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.35))
-
-model.add(Conv2D(128, kernel_size =(3,3),padding='same', activation='swish'))
-model.add(BatchNormalization(momentum=0.2, epsilon=1e-5, gamma_initializer="uniform"))
-model.add(LeakyReLU(alpha=0.1))
-model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
-model.add(LeakyReLU(alpha=0.1))
-model.add(Conv2D(128,(3,3), padding='same', activation='swish' ))
-model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
-model.add(LeakyReLU(alpha=0.1))
-
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.35))
-
-model.add(Conv2D(256, kernel_size = (3,3), padding='same', activation='swish'))
-model.add(BatchNormalization(momentum=0.2, epsilon=1e-5, gamma_initializer="uniform"))
-model.add(LeakyReLU(alpha=0.1))
-model.add(Conv2D(256, kernel_size= (3,3) ,padding='same', activation='swish'))
-model.add(BatchNormalization(momentum=0.1, epsilon=1e-5, gamma_initializer="uniform"))
-model.add(LeakyReLU(alpha=0.1))
-
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.35))
-
-model.add(Flatten())
-model.add(Dense(256))
-model.add(LeakyReLU(alpha=0.1))
-model.add(BatchNormalization())
-model.add(Dense(10, activation='softmax'))
-model.summary()
-```
 
 # Swish Activation Function
 
